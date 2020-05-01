@@ -922,7 +922,7 @@
     "name": "Pipboy",
     "icon": "app.png",
     "version": "0.03",
-    "description": "Pipboy themed clock",
+    "description": "Pippboy themed clock",
     "tags": "clock",
     "type":"clock",
     "allow_emulator":true,
