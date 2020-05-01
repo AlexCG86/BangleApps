@@ -47,6 +47,17 @@ function bottomLine() {
   if (isLeapYear(yy)) daysInYear = 366;
   else daysInYear = 365;
   
+  var d = new Date();
+  var weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+  var n = weekday[d.getDay()];
+  
   g.setFont("6x8", tinyFont);
 
   //first line
@@ -56,7 +67,7 @@ function bottomLine() {
   g.fillRect(166, 175, 239, 185); // RADAWAY
   g.setColor(green);
   
-  g.drawString("DATE", 20, 177);
+  g.drawString("DANCE PARTY (9)", 53, 177);
   g.drawString("STIM (3)", 135, 177);
   g.drawString("RADAWAY (8)", 205, 177);
 
@@ -67,9 +78,16 @@ function bottomLine() {
 
   g.setColor(green);
   g.drawString("HP "+ currDayInYear + "/"+ daysInYear, 38, 192);
-  g.drawString("LEVEL " + day, 100, 192); //show week day
+  g.drawString(n, 100, 192); //show week day
   g.drawRect(127, 192, 235, 198); //frame
   g.fillRect(128, 193, 128 + ((107/24)*h), 197); //progress bar showing progress of day
+
+  //third line
+  g.setColor(darkerGreen);
+  g.fillRect(5, 207, 270, 223);
+
+  g.setColor(green);
+ 
 }
 
 function boy() {
@@ -84,6 +102,7 @@ function drawClock() {
     var mm = t.getMonth()+1; //month is zero-based
     var yy = t.getFullYear();
     var time = ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2);
+
   
     //create date string
     if (dd.toString().length < 2) dd = '0' + dd;
@@ -98,8 +117,9 @@ function drawClock() {
     g.drawString(time, 70, 110);
 
     //draw date
-    g.setFont("6x8", tinyFont);
-    g.drawString(date, 67, 177);
+    g.setFont("6x8", smallFont);
+    g.drawString("DATE", 38, 207);
+    g.drawString(date, 150, 207);
 }
 
 function drawAll() {
